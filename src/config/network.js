@@ -1,3 +1,5 @@
+// src/config/networks.js
+
 export const NETWORKS = {
 
     evoz: {
@@ -6,15 +8,36 @@ export const NETWORKS = {
 
         name: "EVOZ Mainnet",
 
-        chainId: 20120,
+        chainId: 805,
+
+        chainHex: "0x325",
 
         symbol: "EVOZ",
 
-        rpc: "",
+        decimals: 18,
 
-        explorer: "",
+        rpc: "https://rpc.evozscan.com",
 
-        factory: ""
+        explorer: "https://evozscan.com",
+
+        contracts: {
+
+            treasury:
+                "0x50Cd30Ff7f0fbBD9d0FDe1F60DE8c52D6F390c5C",
+
+            token:
+                "0x62B9559F193d111aF92d9a5604d79024BFB1C847",
+
+            exchange:
+                "0x9680B43F695d5245062e59CCA92ad92DE5aed56e",
+
+            deployer:
+                "0x3f81E785628D452A8Aae1536D15A3586B490F0c5",
+
+            factory:
+                "0xcd86Ca358283f06581365635372E5bF0D30271D3"
+
+        }
 
     },
 
@@ -26,13 +49,17 @@ export const NETWORKS = {
 
         chainId: 1,
 
+        chainHex: "0x1",
+
         symbol: "ETH",
+
+        decimals: 18,
 
         rpc: "",
 
         explorer: "",
 
-        factory: ""
+        contracts: {}
 
     },
 
@@ -44,13 +71,17 @@ export const NETWORKS = {
 
         chainId: 56,
 
+        chainHex: "0x38",
+
         symbol: "BNB",
+
+        decimals: 18,
 
         rpc: "",
 
         explorer: "",
 
-        factory: ""
+        contracts: {}
 
     },
 
@@ -62,18 +93,20 @@ export const NETWORKS = {
 
         chainId: 137,
 
+        chainHex: "0x89",
+
         symbol: "POL",
+
+        decimals: 18,
 
         rpc: "",
 
         explorer: "",
 
-        factory: ""
+        contracts: {}
 
     }
 
 };
 
-export const DEFAULT_NETWORK =
-
-    "evoz";
+export const DEFAULT_NETWORK = "evoz";
