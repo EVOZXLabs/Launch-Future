@@ -1,21 +1,7 @@
 import "./style.css";
 
-document.querySelector(
+import { bootstrap }
 
-    "#app"
+from "./app/bootstrap.js";
 
-).innerHTML =
-
-`
-<h1>
-
-LaunchFuture V2
-
-</h1>
-
-<p>
-
-Vite berhasil berjalan.
-
-</p>
-`;
+bootstrap();
