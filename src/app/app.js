@@ -1,4 +1,4 @@
-export function renderApp(){
+export function renderApp() {
 
     document.querySelector(
 
@@ -7,9 +7,11 @@ export function renderApp(){
     ).innerHTML =
 
 `
-<div class="app">
+<div id="layout">
 
-<header>
+<header id="topbar">
+
+<div class="brand">
 
 <h1>
 
@@ -23,15 +25,63 @@ Professional Multichain Launch Platform
 
 </p>
 
-</header>
+</div>
 
-<main>
+<div class="topbarActions">
 
-<button id="connect">
+<button
+
+id="networkButton">
+
+EVOZ Mainnet
+
+</button>
+
+<button
+
+id="connectWalletButton">
 
 Connect Wallet
 
 </button>
+
+</div>
+
+</header>
+
+<main id="workspace">
+
+<section id="wizardPanel">
+
+<h2>
+
+Welcome
+
+</h2>
+
+<p>
+
+Select a network and connect your wallet to begin creating your token.
+
+</p>
+
+</section>
+
+<aside id="previewPanel">
+
+<h3>
+
+Live Preview
+
+</h3>
+
+<p>
+
+Waiting for project information...
+
+</p>
+
+</aside>
 
 </main>
 
