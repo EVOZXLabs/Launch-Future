@@ -5,10 +5,18 @@
 
 import { NETWORKS } from "./networks.js";
 
+// =====================================================
+// Project
+// =====================================================
+
 export const PROJECT_ID =
     "b3638c2c0b3054eab331f253f336ac11";
 
-export const APP_METADATA = {
+// =====================================================
+// Application Metadata
+// =====================================================
+
+export const METADATA = {
 
     name:
         "LaunchFuture",
@@ -21,11 +29,23 @@ export const APP_METADATA = {
 
     icons: [
 
-        "https://evozxlabs.github.io/Launch-Future/logo.png"
+        "https://evozxlabs.github.io/Launch-Future/assets/logo.png"
 
     ]
 
 };
+
+// =====================================================
+// Default Network
+// =====================================================
+
+export const DEFAULT_NETWORK =
+
+    NETWORKS.evoz;
+
+// =====================================================
+// Supported Networks
+// =====================================================
 
 export const SUPPORTED_NETWORKS = [
 
@@ -39,22 +59,35 @@ export const SUPPORTED_NETWORKS = [
 
 ];
 
-export const DEFAULT_NETWORK =
-    NETWORKS.evoz;
+// =====================================================
+// Helpers
+// =====================================================
 
-export function getSupportedChainIds(){
+export function getSupportedNetworks(){
 
-    return SUPPORTED_NETWORKS.map(
-
-        network =>
-
-            network.chainId
-
-    );
+    return SUPPORTED_NETWORKS;
 
 }
 
-export function getNetworkById(
+export function getDefaultNetwork(){
+
+    return DEFAULT_NETWORK;
+
+}
+
+export function getProjectId(){
+
+    return PROJECT_ID;
+
+}
+
+export function getMetadata(){
+
+    return METADATA;
+
+}
+
+export function findNetworkById(
 
     id
 
@@ -70,7 +103,7 @@ export function getNetworkById(
 
 }
 
-export function getNetworkByChainId(
+export function findNetworkByChainId(
 
     chainId
 
@@ -86,31 +119,19 @@ export function getNetworkByChainId(
 
 }
 
-export function isSupportedNetwork(
+export function isSupportedChain(
 
     chainId
 
 ){
 
-    return getSupportedChainId(
+    return (
 
-        chainId
+        findNetworkByChainId(
 
-    ) !== undefined;
+            chainId
 
-}
-
-function getSupportedChainId(
-
-    chainId
-
-){
-
-    return SUPPORTED_NETWORKS.find(
-
-        network =>
-
-            network.chainId === chainId
+        ) !== undefined
 
     );
 
