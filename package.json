@@ -1,0 +1,19 @@
+{
+  "name": "launch-future",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "@reown/appkit": "^1.8.13",
+    "@reown/appkit-adapter-ethers": "^1.8.13",
+    "ethers": "^6.15.0"
+  }
+}
