@@ -1,3 +1,8 @@
+// =====================================================
+// LaunchFuture
+// Global State
+// =====================================================
+
 import {
 
     DEFAULT_NETWORK
@@ -5,6 +10,14 @@ import {
 } from "../config/networks.js";
 
 export const state = {
+
+    app: {
+
+        initialized: false,
+
+        loading: false
+
+    },
 
     network:
 
@@ -18,7 +31,13 @@ export const state = {
 
         provider: null,
 
-        signer: null
+        signer: null,
+
+        chainId: null,
+
+        balance: "0",
+
+        walletName: null
 
     },
 
@@ -28,8 +47,18 @@ export const state = {
 
         gas: null,
 
+        txHash: null,
+
+        contractAddress: null,
+
         result: null
 
-    }
+    },
+
+    token: {},
+
+    metadata: {},
+
+    features: {}
 
 };
