@@ -1,57 +1,44 @@
-// =====================================================
+// ======================================================
 // LaunchFuture
-// AppKit Configuration
-// =====================================================
+// Reown AppKit Configuration
+// ======================================================
 
 import { createAppKit } from "@reown/appkit";
 
-import { EthersAdapter }
+import { EthersAdapter } from "@reown/appkit-adapter-ethers";
 
-from "@reown/appkit-adapter-ethers";
-
-import { defineChain }
-
-from "@reown/appkit/networks";
+import { defineChain } from "@reown/appkit/networks";
 
 import {
 
     PROJECT_ID,
-
     METADATA
 
 } from "./walletconnect.js";
 
-import {
+import { NETWORKS } from "./networks.js";
 
-    NETWORKS
-
-} from "./networks.js";
-
-// =====================================================
-// EVOZ
-// =====================================================
+// ======================================================
+// EVOZ Network
+// ======================================================
 
 export const EVOZ = defineChain({
 
-    id:
-        NETWORKS.evoz.chainId,
+    id: NETWORKS.evoz.chainId,
 
-    name:
-        NETWORKS.evoz.name,
+    name: NETWORKS.evoz.name,
 
-    caipNetworkId:
-        `eip155:${NETWORKS.evoz.chainId}`,
+    chainNamespace: "eip155",
 
-    chainNamespace:
-        "eip155",
+    caipNetworkId: `eip155:${NETWORKS.evoz.chainId}`,
 
     nativeCurrency: {
 
-        decimals: 18,
+        name: NETWORKS.evoz.symbol,
 
-        name: "EVOZ",
+        symbol: NETWORKS.evoz.symbol,
 
-        symbol: "EVOZ"
+        decimals: NETWORKS.evoz.decimals
 
     },
 
@@ -75,9 +62,7 @@ export const EVOZ = defineChain({
 
             name: "EVOZ Explorer",
 
-            url:
-
-                NETWORKS.evoz.explorer
+            url: NETWORKS.evoz.explorer
 
         }
 
@@ -85,9 +70,16 @@ export const EVOZ = defineChain({
 
 });
 
-// =====================================================
+// ======================================================
+// Adapter
+// ======================================================
+
+export const ethersAdapter =
+    new EthersAdapter();
+
+// ======================================================
 // Networks
-// =====================================================
+// ======================================================
 
 export const APP_NETWORKS = [
 
@@ -95,27 +87,12 @@ export const APP_NETWORKS = [
 
 ];
 
-// =====================================================
-// Adapter
-// =====================================================
-
-export const ethersAdapter =
-
-    new EthersAdapter();
-
-// =====================================================
-// Modal
-// =====================================================
+// ======================================================
+// AppKit
+// ======================================================
 
 export const appKit =
-
     createAppKit({
-
-        adapters: [
-
-            ethersAdapter
-
-        ],
 
         projectId:
 
@@ -125,6 +102,12 @@ export const appKit =
 
             METADATA,
 
+        adapters: [
+
+            ethersAdapter
+
+        ],
+
         networks:
 
             APP_NETWORKS,
@@ -133,16 +116,38 @@ export const appKit =
 
             EVOZ,
 
+        enableWalletConnect:
+
+            true,
+
+        enableInjected:
+
+            true,
+
+        enableCoinbase:
+
+            false,
+
         features: {
 
-            analytics: false
+            analytics:
+
+                false
 
         }
 
     });
 
-// =====================================================
-// Export
-// =====================================================
+// ======================================================
+// Exports
+// ======================================================
+
+export {
+
+    createAppKit,
+
+    EthersAdapter
+
+};
 
 export default appKit;
